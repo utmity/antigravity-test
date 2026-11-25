@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anti-Gravity Space Lab</title>
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; background: radial-gradient(circle at top, #1b2735 0%, #090a0f 100%); color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow-x: hidden; text-align: center; padding: 20px; }
+  .verify-badge { background: linear-gradient(90deg, #ff007f, #7928ca); padding: 12px 24px; border-radius: 999px; font-size: 1.25rem; font-weight: bold; letter-spacing: 1px; box-shadow: 0 0 20px rgba(255, 0, 127, 0.6); margin-bottom: 24px; }
+  .controls { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 32px; }
+  button { background: #00d2ff; color: #090a0f; border: none; padding: 12px 24px; font-size: 1rem; font-weight: bold; border-radius: 8px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+  button:hover { transform: scale(1.05); box-shadow: 0 0 15px #00d2ff; }
+  .cards { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; perspective: 1000px; }
+  .card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(8px); padding: 24px; border-radius: 16px; width: 200px; transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 1s; }
+  .zero-g .card:nth-child(1) { transform: translateY(-45px) rotate(-6deg); box-shadow: 0 25px 35px rgba(0,210,255,0.3); }
+  .zero-g .card:nth-child(2) { transform: translateY(-65px) rotate(4deg); box-shadow: 0 30px 40px rgba(121,40,202,0.4); }
+  .zero-g .card:nth-child(3) { transform: translateY(-35px) rotate(7deg); box-shadow: 0 20px 30px rgba(255,0,127,0.3); }
+  .counter { font-size: 2rem; font-weight: bold; color: #00d2ff; margin-top: 8px; }
+</style>
+</head>
+<body>
+  <div class="verify-badge">検証コード AG-VERIFY-7K2M9</div>
+  <h1>🚀 Anti-Gravity Space Lab</h1>
+  <p>無重力スイッチと反重力エネルギーチャージャーで宇宙空間を体験しよう！</p>
+  <div class="controls">
+    <button onclick="document.getElementById('lab').classList.toggle('zero-g')">🌌 無重力 / 重力 切替</button>
+    <button onclick="addEnergy()">⚡ 反重力エネルギー充填</button>
+  </div>
+  <div class="cards" id="lab">
+    <div class="card"><h3>🛰️ 衛星モジュール</h3><p>軌道上で浮遊テスト中</p></div>
+    <div class="card"><h3>⚡ 反重力コア</h3><div class="counter" id="energy">0</div><p>kW / クリックで増加</p></div>
+    <div class="card"><h3>👨‍🚀 宇宙飛行士</h3><p>無重力状態: 快適</p></div>
+  </div>
+  <script>
+    let energy = 0;
+    function addEnergy() {
+      energy += 100;
+      document.getElementById('energy').textContent = energy;
+    }
+  </script>
+</body>
+</html>
